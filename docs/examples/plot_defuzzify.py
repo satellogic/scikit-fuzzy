@@ -11,7 +11,10 @@ There are several possible methods for defuzzification, exposed via
 
 """
 import numpy as np
-import matplotlib.pyplot as plt
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    pass
 import skfuzzy as fuzz
 
 

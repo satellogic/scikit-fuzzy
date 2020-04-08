@@ -132,13 +132,14 @@ except ImportError:
     def format_template(template, **kw):
         return jinja.from_string(template, **kw)
 
-
-import matplotlib
-import matplotlib.cbook as cbook
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-from matplotlib import _pylab_helpers
-
+try:
+    import matplotlib
+    import matplotlib.cbook as cbook
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    from matplotlib import _pylab_helpers
+except ImportError:
+    pass
 __version__ = 2
 
 #------------------------------------------------------------------------------
@@ -749,7 +750,7 @@ def run(arguments, content, options, state_machine, state, lineno):
     # copy image files to builder's output directory, if necessary
     if not os.path.exists(dest_dir):
         cbook.mkdirs(dest_dir)
-    
+
     for code_piece, images in results:
         for img in images:
             for fn in img.filenames():

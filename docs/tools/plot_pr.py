@@ -3,8 +3,11 @@ import json
 import copy
 from collections import OrderedDict
 
-import matplotlib.pyplot as plt
-from matplotlib.ticker import FuncFormatter
+try:
+    import matplotlib.pyplot as plt
+    from matplotlib.ticker import FuncFormatter
+except ImportError:
+    pass
 
 import dateutil.parser
 from dateutil.relativedelta import relativedelta

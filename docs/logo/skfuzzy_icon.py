@@ -3,8 +3,10 @@ import skfuzzy as fuzz
 import scipy.ndimage as ndi
 import skimage.io
 from skimage.transform import resize
-import matplotlib.pyplot as plt
-
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    pass
 kwargs = {'lw': 20, 'solid_capstyle': 'round'}
 
 

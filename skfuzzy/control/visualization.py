@@ -5,7 +5,10 @@ from __future__ import print_function, division
 
 import numpy as np
 import networkx as nx
-import matplotlib.pyplot as plt
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    pass
 
 from ..fuzzymath.fuzzy_ops import interp_membership
 
@@ -207,10 +210,10 @@ class ControlSystemVisualizer(object):
 
         Notes
         -----
-        This method uses the NetworkX ``draw_networkx`` command, to check that 
-        all Mebership Functions, MF, are used (green) among the rules. The plot 
-        also writes the name of the MF. If further customization is desired, the 
-        matplotlib Figure/Axis objects are returned.  In a Jupyter notebook, 
+        This method uses the NetworkX ``draw_networkx`` command, to check that
+        all Mebership Functions, MF, are used (green) among the rules. The plot
+        also writes the name of the MF. If further customization is desired, the
+        matplotlib Figure/Axis objects are returned.  In a Jupyter notebook,
         these will be displayed inline.
         If the network model fails, it will return the ordenary view.
         """

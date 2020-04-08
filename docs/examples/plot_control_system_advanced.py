@@ -124,9 +124,11 @@ for i in range(21):
         z[i, j] = sim.output['output']
 
 # Plot the result in pretty 3D with alpha blending
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D  # Required for 3D plotting
-
+try:
+    import matplotlib.pyplot as plt
+    from mpl_toolkits.mplot3d import Axes3D  # Required for 3D plotting
+except ImportError:
+    pass
 fig = plt.figure(figsize=(8, 8))
 ax = fig.add_subplot(111, projection='3d')
 
